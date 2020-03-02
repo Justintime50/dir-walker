@@ -1,8 +1,28 @@
-# dir-walker
-Easily walk through a directory and find what you need.
+# Gatekeeper
+
+Suite of tools to keep code safe, keep git history clean, and correct silly human error.
+
+[![Build Status](https://travis-ci.org/Justintime50/gatekeeper.svg?branch=master)](https://travis-ci.org/Justintime50/gatekeeper)
+[![MIT Licence](https://badges.frapsoft.com/os/mit/mit.svg?v=103)](https://opensource.org/licenses/mit-license.php)
+
+Gatekeeper is the perfect companion to any source control workflow. Find files still containing secrets or search for specific file types you may have forgotten to add to your gitignore. Gatekeeper will keep your git history safe and your life a bit more stress free. Longterm, Gatekeeper is intended to be a completely automated suite of tools that can be used to keep code safe, git history clean, and correct silly human error.
 
 ## Usage
-- `file-ext-search.py` will search for files with whatever file extension provided in the directory the script placed in and return what it finds.
 
-## Roadmap
-- Eventually allow searching of files or keywords we aren't interested in housing in a repo such as a catch-all gitignore or CDN entries etc.
+Currently, Gatekeeper is a manual tool that must be run via the command line. Run either of the following gatekeeper scripts below.
+
+### Gatekeeper File Extension Search
+
+Search for files with whatever file extension and in whatever directory you provide and return what it finds.
+
+```bash
+python3 gatekeeper-file-ext.py
+```
+
+### Gatekeeper Secrets Search
+
+Search a directory you specify for alphanumeric strings in every file in the directory. Perfect for finding any passwords, API keys, or secrets you were about to commit.
+
+```bash
+python3 gatekeeper-secrets.py
+```

@@ -1,0 +1,4 @@
+language: bash
+
+scripts: 
+    # TODO: Add pylint here when ready
