@@ -16,13 +16,25 @@ Currently, Gatekeeper is a manual tool that must be run via the command line. Ru
 Search for files with whatever file extension and in whatever directory you provide and return what it finds.
 
 ```bash
-python3 gatekeeper-file-ext.py
+python3 gatekeeper_file_ext.py
 ```
 
 ### Gatekeeper Secrets Search
 
 Search a directory you specify for alphanumeric strings in every file in the directory. Perfect for finding any passwords, API keys, or secrets you were about to commit.
 
+You should specify the root directory of the project you want Gatekeeper to check.
+
 ```bash
-python3 gatekeeper-secrets.py
+python3 gatekeeper_secrets.py /path/to/my/project/dir
+```
+
+## Development
+
+```bash
+# Install pylint
+pip3 install pylint
+
+# Lint files
+pylint src/*.py
 ```

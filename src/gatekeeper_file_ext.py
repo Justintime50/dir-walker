@@ -9,4 +9,4 @@ EXT = ".py"
 for root, dirs, files in os.walk(DIR):
     for file in files:
         if file.endswith(EXT):
-             print(os.path.join(root, file))
+            print(os.path.join(root, file))

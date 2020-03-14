@@ -1,4 +1,11 @@
-language: bash
+language: python
 
-scripts: 
-    # TODO: Add pylint here when ready
+python:
+    - "3.6"
+    - "3.7"
+    - "3.8"
+
+install: pip install pylint
+
+script: 
+    - pylint src/*.py
