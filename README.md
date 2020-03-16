@@ -9,7 +9,7 @@ Gatekeeper is the perfect companion to any source control workflow. Find files s
 
 ## Usage
 
-Currently, Gatekeeper is a manual tool that must be run via the command line. Run either of the following gatekeeper scripts below.
+Currently, Gatekeeper is a manual tool that must be run via the command line.
 
 ### Gatekeeper File Extension Search
 
