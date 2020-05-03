@@ -2,7 +2,7 @@
 
 Suite of tools to keep code safe, keep git history clean, and correct silly human error.
 
-[![Build Status](https://travis-ci.org/Justintime50/gatekeeper.svg?branch=master)](https://travis-ci.org/Justintime50/gatekeeper)
+[![Build Status](https://travis-ci.com/Justintime50/gatekeeper.svg?branch=master)](https://travis-ci.com/Justintime50/gatekeeper)
 [![MIT Licence](https://badges.frapsoft.com/os/mit/mit.svg?v=103)](https://opensource.org/licenses/mit-license.php)
 
 Gatekeeper is the perfect companion to any source control workflow. Find files still containing secrets or search for specific file types you may have forgotten to add to your gitignore. Gatekeeper will keep your git history safe and your life a bit more stress free. Longterm, Gatekeeper is intended to be a completely automated suite of tools that can be used to keep code safe, git history clean, and correct silly human error.
