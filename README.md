@@ -5,10 +5,11 @@
 Gatekeeper is a suite of tools that sees and knows all about your code.
 
 [![Build Status](https://travis-ci.com/Justintime50/gatekeeper.svg?branch=master)](https://travis-ci.com/Justintime50/gatekeeper)
-[![Pypi](https://img.shields.io/pypi/v/gatekeeper-suite)](https://pypi.org/project/gatekeeper-suite/)
-[![MIT Licence](https://badges.frapsoft.com/os/mit/mit.svg?v=103)](https://opensource.org/licenses/mit-license.php)
+[![Coverage Status](https://coveralls.io/repos/github/Justintime50/gatekeeper/badge.svg?branch=master)](https://coveralls.io/github/Justintime50/gatekeeper?branch=master)
+[![PyPi](https://img.shields.io/pypi/v/gatekeeper-suite)](https://pypi.org/project/gatekeeper-suite/)
+[![Licence](https://img.shields.io/github/license/justintime50/gatekeeper)](LICENSE)
 
-<img src="assets/showcase.png">
+<img src="assets/showcase.png" alt="Showcase">
 
 </div>
 
@@ -17,7 +18,14 @@ Gatekeeper is the perfect companion to any source control workflow. Find files s
 ## Install
 
 ```bash
+# Install tool
 pip3 install gatekeeper-suite
+
+# Install locally
+make install
+
+# Get Makefile help
+make help
 ```
 
 ## Usage
@@ -28,12 +36,12 @@ File Extension searches for all files in a path with the specified file extensio
 
 ```
 Usage:
-    gatekeeper-file-extension --extension ".py" --path ~/code/my_project
+    gatekeeper-file-extension --path ~/code/my_project --extension ".py"
 
 Options:
     -h, --help                              show this help message and exit
-    -e EXTENSION, --extension EXTENSION     The file extension to search a path for.
     -p PATH, --path PATH                    Where File Extension will search for files with the specified file extension.
+    -e EXTENSION, --extension EXTENSION     The file extension to search a path for.
 ```
 
 ### Gatekeepeer Scout
@@ -42,12 +50,12 @@ Scout searches through a directory for any string of text you specify. Perfect f
 
 ```
 Usage:
-    gatekeeper-scout --search "My string of text" --path ~/code/my_project
+    gatekeeper-scout --path ~/code/my_project --search "My string of text"
 
 Options:
     -h, --help                  show this help message and exit
-    -s SEARCH, --search SEARCH  The string to search for in each file of a path.
     -p PATH, --path PATH        Where Scout will search for the string specified in each file.
+    -s SEARCH, --search SEARCH  The string to search for in each file of a path.
 ```
 
 ### Gatekeeper Secrets
@@ -67,11 +75,14 @@ Options:
 ## Development
 
 ```bash
-# Install pylint
-pip3 install -e ."[dev]"
+# Lint the project
+make lint
 
-# Lint files
-pylint gatekeeper/*.py
+# Run tests
+make test
+
+# Run the scripts locally
+venv/bin/python gatekeeper/secrets.py --help
 ```
 
 ## Attribution

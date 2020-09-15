@@ -3,14 +3,10 @@ import setuptools
 with open("README.md", "r") as fh:
     long_description = fh.read()
 
-REQUIREMENTS = [
-    'argparse >= 1.4.0',
-]
-
 setuptools.setup(
     name='gatekeeper-suite',
-    version='1.0.0',
-    description='Gatekeeper is a suite of tools that sees and knows all about your code.',
+    version='1.1.0',
+    description='Gatekeeper is a suite of tools that sees and knows all about your code.',  # noqa
     long_description=long_description,
     long_description_content_type="text/markdown",
     url='http://github.com/justintime50/gatekeeper',
@@ -22,10 +18,12 @@ setuptools.setup(
         "License :: OSI Approved :: MIT License",
         "Operating System :: OS Independent",
     ],
-    install_requires=REQUIREMENTS,
     extras_require={
         'dev': [
-            'pylint >= 2.5.0',
+            'pytest >= 6.0.0',
+            'pytest-cov >= 2.10.0',
+            'coveralls >= 2.1.2',
+            'flake8 >= 3.8.0',
         ]
     },
     entry_points={
