@@ -1,18 +1,19 @@
-import re
-import os
 import argparse
+import os
+import re
 
 
 class SecretsCLI():
     def __init__(self):
         parser = argparse.ArgumentParser(
-            description='Secrets searches a path for possible secrets in code.')  # noqa
+            description='Secrets searches a path for possible secrets in code.'
+        )
         parser.add_argument(
             '-p',
             '--path',
             required=True,
             type=str,
-            help='Where Secrets will search for the string specified in each file.'  # noqa
+            help='Where Secrets will search for the string specified in each file.'
         )
         parser.add_argument(
             '-l',
@@ -35,7 +36,7 @@ class Secrets():
     def run(cls, path, length):
         """Search files for secrets such as passwords, API keys, etc
         """
-        print('\n####################\nGATEKEEPER - SECRETS\n####################\n')  # noqa
+        print('\n####################\nGATEKEEPER - SECRETS\n####################\n')
         print('The following files may have secrets stored in them:\n')
         regex_pattern = re.compile(r'\b\w{' + str(length) + r',}\b')
         dirs_to_ignore = [
@@ -47,14 +48,14 @@ class Secrets():
             'dist'
         ]
         if os.path.exists(os.path.join(path, '.gitignore')):
-            gitignore = open(os.path.join(path, '.gitignore'), 'r').read().splitlines()  # noqa
+            gitignore = open(os.path.join(path, '.gitignore'), 'r').read().splitlines()
         else:
             gitignore = False
 
         # Run script iterating over each file and directory
         secrets_files = []
         for root, dirs, files in os.walk(path, topdown=True):
-            dirs[:] = [directory for directory in dirs if directory not in dirs_to_ignore]  # noqa
+            dirs[:] = [directory for directory in dirs if directory not in dirs_to_ignore]
             for file in files:
                 if gitignore and file in gitignore:
                     continue
@@ -65,7 +66,7 @@ class Secrets():
                     for line_number, line in enumerate(single_file, 1):
                         data = regex_pattern.findall(line)
                         for secret in data:
-                            message = f'File: {filepath}\nSecret: {secret}\nLine: {line_number}\n'  # noqa
+                            message = f'File: {filepath}\nSecret: {secret}\nLine: {line_number}\n'
                             secrets_files.append(message)
                             print(message)
         return secrets_files

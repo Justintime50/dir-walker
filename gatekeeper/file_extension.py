@@ -1,16 +1,17 @@
-import os
 import argparse
+import os
 
 
 class FileExtensionCLI():
     def __init__(self):
         parser = argparse.ArgumentParser(
-            description='File Extension searches for all files in a path with the specified file extension.')  # noqa
+            description='File Extension searches for all files in a path with the specified file extension.'
+        )
         parser.add_argument(
             '-p',
             '--path',
             required=True,
-            help='Where File Extension will search for files with the specified file extension.'  # noqa
+            help='Where File Extension will search for files with the specified file extension.'
         )
         parser.add_argument(
             '-e',
@@ -42,7 +43,7 @@ class FileExtension():
         ]
         file_extension_files = []
         for root, dirs, files in os.walk(path, topdown=True):
-            dirs[:] = [directory for directory in dirs if directory not in dirs_to_ignore]  # noqa
+            dirs[:] = [directory for directory in dirs if directory not in dirs_to_ignore]
             for file in files:
                 if file.endswith(extension):
                     file_extension_file = os.path.join(root, file)

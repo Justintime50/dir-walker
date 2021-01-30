@@ -72,6 +72,20 @@ Options:
     -l LENGTH, --length LENGTH    The minimum length of the secrets to search for.
 ```
 
+### Gatekeeper Sequential Renamer
+
+Sequential Renamer recursively renames files in a directory in a sequential manner and prepends the parent folder name.
+
+```
+Usage:
+    gatekeeper-sequential-renamer --path ~/path/to/photos --force
+
+Options:
+    -h, --help            show this help message and exit
+    -p PATH, --path PATH  Where Sequential Renamer will recursively rename files it finds.
+    -f, --force           Force changes which take permenant effect.
+```
+
 ## Development
 
 ```bash

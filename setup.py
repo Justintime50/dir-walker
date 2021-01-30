@@ -6,7 +6,7 @@ with open("README.md", "r") as fh:
 setuptools.setup(
     name='gatekeeper-suite',
     version='1.1.0',
-    description='Gatekeeper is a suite of tools that sees and knows all about your code.',  # noqa
+    description='Gatekeeper is a suite of tools that sees and knows all about your code.',
     long_description=long_description,
     long_description_content_type="text/markdown",
     url='http://github.com/justintime50/gatekeeper',
@@ -30,7 +30,8 @@ setuptools.setup(
         'console_scripts': [
             'gatekeeper-scout = gatekeeper.scout:main',
             'gatekeeper-secrets = gatekeeper.secrets:main',
-            'gatekeeper-file-extension = gatekeeper.file_extension:main'
+            'gatekeeper-file-extension = gatekeeper.file_extension:main',
+            'gatekeeper-sequential-renamer = gatekeeper.sequential_renamer:main',
         ]
     },
     python_requires='>=3.6',
