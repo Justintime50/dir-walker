@@ -114,4 +114,4 @@ venv/bin/python roverio/secrets.py --help
 
 ## Attribution
 
-* Icons on README made by <a href="https://www.flaticon.com/free-icon/castle_3125375" title="Icongeek26">Icongeek26</a> from <a href="https://www.flaticon.com/" title="Flaticon"> www.flaticon.com</a>
+* Icons made by <a href="https://www.freepik.com" title="Freepik">Freepik</a> from <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a>
