@@ -4,12 +4,12 @@ with open("README.md", "r") as fh:
     long_description = fh.read()
 
 setuptools.setup(
-    name='gatekeeper-suite',
-    version='1.1.0',
-    description='Gatekeeper is a suite of tools that sees and knows all about your code.',
+    name='roverio',
+    version='2.0.0',
+    description='Rover IO is a suite of tools traverses your directories and performs IO file operations.',
     long_description=long_description,
     long_description_content_type="text/markdown",
-    url='http://github.com/justintime50/gatekeeper',
+    url='http://github.com/justintime50/roverio',
     author='Justintime50',
     license='MIT',
     packages=setuptools.find_packages(),
@@ -24,14 +24,15 @@ setuptools.setup(
             'pytest-cov >= 2.10.0',
             'coveralls >= 2.1.2',
             'flake8 >= 3.8.0',
+            'mock >= 4.0.0',
         ]
     },
     entry_points={
         'console_scripts': [
-            'gatekeeper-scout = gatekeeper.scout:main',
-            'gatekeeper-secrets = gatekeeper.secrets:main',
-            'gatekeeper-file-extension = gatekeeper.file_extension:main',
-            'gatekeeper-sequential-renamer = gatekeeper.sequential_renamer:main',
+            'roverio-scout = roverio.scout:main',
+            'roverio-secrets = roverio.secrets:main',
+            'roverio-file-extension = roverio.file_extension:main',
+            'roverio-sequential-renamer = roverio.sequential_renamer:main',
         ]
     },
     python_requires='>=3.6',

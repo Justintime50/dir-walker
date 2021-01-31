@@ -25,19 +25,27 @@ class SecretsCLI():
         parser.parse_args(namespace=self)
 
     def run(self):
-        Secrets.run(
+        Secrets.main(
             path=self.path,
             length=self.length,
         )
 
 
 class Secrets():
-    @classmethod
-    def run(cls, path, length):
+    @staticmethod
+    def main(path, length):
+        """Run the tool printing results to console
+        """
+        print('\n####################\nROVER IO - SECRETS\n####################\n')
+        print('The following files may have secrets stored in them:\n')
+        messages = Secrets.search_for_secrets(path, length)
+        for message in messages:
+            print(message)
+
+    @staticmethod
+    def search_for_secrets(path, length):
         """Search files for secrets such as passwords, API keys, etc
         """
-        print('\n####################\nGATEKEEPER - SECRETS\n####################\n')
-        print('The following files may have secrets stored in them:\n')
         regex_pattern = re.compile(r'\b\w{' + str(length) + r',}\b')
         dirs_to_ignore = [
             'node_modules',
@@ -45,7 +53,8 @@ class Secrets():
             '.git',
             '__pycache__',
             'build',
-            'dist'
+            'dist',
+            'htmlcov',
         ]
         if os.path.exists(os.path.join(path, '.gitignore')):
             gitignore = open(os.path.join(path, '.gitignore'), 'r').read().splitlines()
@@ -56,10 +65,10 @@ class Secrets():
         secrets_files = []
         for root, dirs, files in os.walk(path, topdown=True):
             dirs[:] = [directory for directory in dirs if directory not in dirs_to_ignore]
-            for file in files:
-                if gitignore and file in gitignore:
+            for filename in files:
+                if gitignore and filename in gitignore:
                     continue
-                filepath = os.path.join(root, file)
+                filepath = os.path.join(root, filename)
 
                 # Open each file and print the findings
                 with open(filepath, 'r', encoding='latin1') as single_file:
@@ -68,7 +77,6 @@ class Secrets():
                         for secret in data:
                             message = f'File: {filepath}\nSecret: {secret}\nLine: {line_number}\n'
                             secrets_files.append(message)
-                            print(message)
         return secrets_files
 
 

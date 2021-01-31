@@ -22,15 +22,23 @@ class FileExtensionCLI():
         parser.parse_args(namespace=self)
 
     def run(self):
-        FileExtension.run(
+        FileExtension.main(
             path=self.path,
             extension=self.extension,
         )
 
 
 class FileExtension():
-    @classmethod
-    def run(cls, path, extension):
+    @staticmethod
+    def main(path, extension):
+        """Run the tool and print results to console
+        """
+        files = FileExtension.search_file_extensions(path, extension)
+        for filename in files:
+            print(filename)
+
+    @staticmethod
+    def search_file_extensions(path, extension):
         """Search for files with a specific extension in the specified directory
         """
         dirs_to_ignore = [
@@ -48,7 +56,6 @@ class FileExtension():
                 if file.endswith(extension):
                     file_extension_file = os.path.join(root, file)
                     file_extension_files.append(file_extension_file)
-                    print(file_extension_file)
         return file_extension_files
 
 

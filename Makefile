@@ -6,8 +6,8 @@ help:
 
 ## venv - Install the virtual environment
 venv:
-	$(VIRTUALENV) ~/.venv/gatekeeper/
-	ln -snf ~/.venv/gatekeeper/ venv
+	$(VIRTUALENV) ~/.venv/roverio/
+	ln -snf ~/.venv/roverio/ venv
 	venv/bin/pip install -e ."[dev]"
 
 ## install - Install the project locally
@@ -15,7 +15,7 @@ install: | venv
 
 ## clean - Remove the virtual environment and clear out .pyc files
 clean:
-	rm -rf ~/.venv/gatekeeper/ venv
+	rm -rf ~/.venv/roverio/ venv
 	find . -name '*.pyc' -delete
 	rm -rf dist
 	rm -rf build
@@ -23,11 +23,15 @@ clean:
 
 ## lint - Lint the project
 lint:
-	venv/bin/flake8 gatekeeper/*.py
-	venv/bin/flake8 test/*.py
+	venv/bin/flake8 roverio/*.py
+	venv/bin/flake8 test/unit/*.py
 
 ## test - Test the project
 test:
 	venv/bin/pytest
 
-.PHONY: help install clean lint test 
+## coverage - Test the project and generate an HTML coverage report
+coverage:
+	venv/bin/pytest --cov=roverio --cov-branch --cov-report=html
+
+.PHONY: help install clean lint test coverage

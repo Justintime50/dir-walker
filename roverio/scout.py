@@ -23,19 +23,28 @@ class ScoutCLI():
         parser.parse_args(namespace=self)
 
     def run(self):
-        Scout.run(
+        Scout.main(
             path=self.path,
             search=self.search,
         )
 
 
 class Scout():
-    @classmethod
-    def run(cls, path, search):
-        """Run script iterating over each file and directory
+    @staticmethod
+    def main(path, search):
+        """Run the tool and print to console
         """
-        print('\n##################\nGATEKEEPER - SCOUT\n##################\n')
-        print('Gatekeeper Scout found the following for your search query:\n')
+        print('\n##################\nROVER IO - SCOUT\n##################\n')
+        print('Rover IO Scout found the following for your search query:\n')
+        messages = Scout.search_for_string(path, search)
+        for message in messages:
+            print(message)
+
+    @staticmethod
+    def search_for_string(path, search):
+        """Iterate over each file and directory and build a list of results
+        containing the specified string
+        """
         dirs_to_ignore = [
             'node_modules',
             'vendor',
@@ -50,8 +59,8 @@ class Scout():
         scout_files = []
         for root, dirs, files in os.walk(path, topdown=True):
             dirs[:] = [directory for directory in dirs if directory not in dirs_to_ignore]
-            for file in files:
-                filepath = os.path.join(root, file)
+            for filename in files:
+                filepath = os.path.join(root, filename)
 
                 # Open each file and print the findings
                 with open(filepath, 'r') as single_file:
@@ -60,7 +69,6 @@ class Scout():
                         for search in data:
                             message = f'File: {filepath}\nSearch: {line.strip()}\nLine: {line_number}\n'
                             scout_files.append(message)
-                            print(message)
         return scout_files
 
 
