@@ -5,7 +5,7 @@
 Rover IO is a suite of tools traverses your directories and performs IO file operations.
 
 [![Build Status](https://github.com/Justintime50/roverio/workflows/build/badge.svg)](https://github.com/Justintime50/withbond-easpost/actions)
-[![Coverage Status](https://coveralls.io/repos/github/Justintime50/roverio/badge.svg?branch=master)](https://coveralls.io/github/Justintime50/roverio?branch=master)
+[![Coverage Status](https://coveralls.io/repos/github/Justintime50/roverio/badge.svg?branch=main)](https://coveralls.io/github/Justintime50/roverio?branch=master)
 [![PyPi](https://img.shields.io/pypi/v/roverio)](https://pypi.org/project/roverio/)
 [![Licence](https://img.shields.io/github/license/justintime50/roverio)](LICENSE)
 
