@@ -11,10 +11,10 @@ def test_run_cli(mock_iterate_readmes, mock_path, mock_readmy_readme_rules):
 
 
 def test_iterate_readmes(mock_path, mock_readmy_readme_rules):
-    table = ReadmyReadmes.iterate_readmes(mock_path, mock_readmy_readme_rules, lazy=True)
+    table = ReadmyReadmes.iterate_readmes(mock_path, mock_readmy_readme_rules)
     assert table == (
-        '| README File | install | usage | todo  | test |\n'
-        '| README.md   | True    | True  | False | True |'
+        '| README File | install | usage | todo | test |\n'
+        '| README.md   | True    | True  | True | True |'
     )
 
 
