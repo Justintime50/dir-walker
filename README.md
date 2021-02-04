@@ -58,7 +58,7 @@ Each rule must be on its own line in your `rules` test file. Depending on the pa
 
 ```
 Usage
-    readmy-readmes -p path/to/git_projects -r path/to/rules.txt -l -c -csv_path path/to/file.csv
+    roverio-readmy-readmes -p path/to/git_projects -r path/to/rules.txt -l -c -csv_path path/to/file.csv
 
 Options:
     -h, --help            show this help message and exit
