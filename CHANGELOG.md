@@ -1,5 +1,10 @@
 # CHANGELOG
 
+## v2.1.0 (2021-02-04)
+
+* Added Readmy Readmes tool
+* Coverage report now also prints to console in addition to generating an HTML report
+
 ## v2.0.0 (2021-01-30)
 
 * Changed name from `Gatekeeper` to `Rover IO` since most of the tools dealt with file and directory operations instead of protecting code.

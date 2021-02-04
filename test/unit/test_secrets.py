@@ -8,4 +8,4 @@ def test_secrets_no_gitignore():
 
 def test_secrets_gitignore():
     result = secrets.Secrets.search_for_secrets('./', 20)
-    assert 'File: ./setup.py\nSecret: long_description_content_type\nLine: 11\n' in result
+    assert 'File: ./setup.py\nSecret: long_description_content_type\nLine: 15\n' in result

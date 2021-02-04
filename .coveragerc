@@ -6,3 +6,4 @@ exclude_lines =
     ScoutCLI()
     SecretsCLI()
     SequentialRenamerCLI()
+    Cli()

@@ -2,7 +2,7 @@
 
 # Rover IO
 
-Rover IO is a suite of tools traverses your directories and performs IO file operations.
+Rover IO is a suite of tools that traverses your directories and performs IO file operations.
 
 [![Build Status](https://github.com/Justintime50/roverio/workflows/build/badge.svg)](https://github.com/Justintime50/roverio/actions)
 [![Coverage Status](https://coveralls.io/repos/github/Justintime50/roverio/badge.svg?branch=main)](https://coveralls.io/github/Justintime50/roverio?branch=master)
@@ -42,6 +42,50 @@ Options:
     -h, --help                              show this help message and exit
     -p PATH, --path PATH                    Where File Extension will search for files with the specified file extension.
     -e EXTENSION, --extension EXTENSION     The file extension to search a path for.
+```
+
+### Readmy Readmes
+
+Readmy Readmes is a fantastic tool to help find the holes in your project's documentation. Quickly iterate over every project README you have to search for key phrases you know should be there. 
+
+Each rule must be on its own line in your `rules` test file. Depending on the path you specify, you can search all your project README's or just a single project.
+
+**Use Cases**
+* Ensure you have instructions for installing, usage, and testing your project
+* Find long-forgotten TODO's that still need fixing
+* Search for a particular phrase when you can't remember where it lived
+* Find hiding README's deep in a project's structure
+
+```
+Usage
+    readmy-readmes -p path/to/git_projects -r path/to/rules.txt -l -c -csv_path path/to/file.csv
+
+Options:
+    -h, --help            show this help message and exit
+    -p PATH, --path PATH  The path where the tool will search for README's.
+    -r RULES, --rules RULES
+                            The path to your rule text file.
+    -l, --lazy            Match rules lazily (case-insensitive).
+    -c, --create_csv      Save output to a CSV file.
+    --csv_path CSV_PATH   The file path where a CSV file will be saved. By default, it will be saved to the current directory.
+```
+
+**Sample Output**
+
+```
+| README File             | install | usage | test  | todo  |
+| adventofcode/README.md  | True    | True  | True  | False |
+| algorithms/README.md    | True    | True  | True  | False |
+| brew-backup/README.md   | True    | True  | False | False |
+| brew-update/README.md   | False   | True  | False | False |
+| build-project/README.md | True    | True  | False | False |
+| build-readme/README.md  | True    | True  | True  | False |
+| burn-notice/README.md   | False   | True  | False | False |
+| dad/README.md           | True    | True  | True  | False |
+| dev-tools/README.md     | False   | True  | True  | False |
+| diff/README.md          | True    | True  | True  | False |
+| dotfiles/README.md      | True    | True  | False | False |
+...
 ```
 
 ### Scout

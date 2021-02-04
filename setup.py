@@ -3,10 +3,14 @@ import setuptools
 with open("README.md", "r") as fh:
     long_description = fh.read()
 
+REQUIREMENTS = [
+    'pretty-tables >= 1.0.0',
+]
+
 setuptools.setup(
     name='roverio',
-    version='2.0.0',
-    description='Rover IO is a suite of tools traverses your directories and performs IO file operations.',
+    version='2.1.0',
+    description='Rover IO is a suite of tools that traverses your directories and performs IO file operations.',  # noqa
     long_description=long_description,
     long_description_content_type="text/markdown",
     url='http://github.com/justintime50/roverio',
@@ -18,6 +22,7 @@ setuptools.setup(
         "License :: OSI Approved :: MIT License",
         "Operating System :: OS Independent",
     ],
+    install_requires=REQUIREMENTS,
     extras_require={
         'dev': [
             'pytest >= 6.0.0',
@@ -33,6 +38,7 @@ setuptools.setup(
             'roverio-secrets = roverio.secrets:main',
             'roverio-file-extension = roverio.file_extension:main',
             'roverio-sequential-renamer = roverio.sequential_renamer:main',
+            'roverio-readmy-readmes = roverio.readmy_readmes:main',
         ]
     },
     python_requires='>=3.6',
