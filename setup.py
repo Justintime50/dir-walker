@@ -17,7 +17,7 @@ DEV_REQUIREMENTS = [
 
 setuptools.setup(
     name='roverio',
-    version='2.1.0',
+    version='2.2.0',
     description='Rover IO is a suite of tools that traverses your directories and performs IO file operations.',  # noqa
     long_description=long_description,
     long_description_content_type="text/markdown",
@@ -36,11 +36,12 @@ setuptools.setup(
     },
     entry_points={
         'console_scripts': [
+            'roverio-file-extension = roverio.file_extension:main',
+            'roverio-phone-email-searcher = roverio.phone_email_searcher:main',
+            'roverio-readmy-readmes = roverio.readmy_readmes:main',
             'roverio-scout = roverio.scout:main',
             'roverio-secrets = roverio.secrets:main',
-            'roverio-file-extension = roverio.file_extension:main',
             'roverio-sequential-renamer = roverio.sequential_renamer:main',
-            'roverio-readmy-readmes = roverio.readmy_readmes:main',
         ]
     },
     python_requires='>=3.6',

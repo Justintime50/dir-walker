@@ -2,6 +2,8 @@ import argparse
 import os
 import re
 
+from roverio.constants import DIRS_TO_IGNORE
+
 
 class ScoutCLI():
     def __init__(self):
@@ -45,20 +47,12 @@ class Scout():
         """Iterate over each file and directory and build a list of results
         containing the specified string
         """
-        dirs_to_ignore = [
-            'node_modules',
-            'vendor',
-            '.git',
-            '__pycache__',
-            'build',
-            'dist'
-        ]
         regex_pattern = re.compile(search)
 
         # Scout for the search query in all subdirectories of the one specified
         scout_files = []
         for root, dirs, files in os.walk(path, topdown=True):
-            dirs[:] = [directory for directory in dirs if directory not in dirs_to_ignore]
+            dirs[:] = [directory for directory in dirs if directory not in DIRS_TO_IGNORE]
             for filename in files:
                 filepath = os.path.join(root, filename)
 

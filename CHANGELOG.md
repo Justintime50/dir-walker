@@ -1,5 +1,11 @@
 # CHANGELOG
 
+# v2.2.0 (2021-05-31)
+
+* Added new phone/email searcher tool
+* Moved dirs/files to ignore lists to constants in a separate file which can be reused by all tools in this repo
+* Pins dependencies
+
 ## v2.1.0 (2021-02-04)
 
 * Added Readmy Readmes tool

@@ -2,6 +2,8 @@ import argparse
 import os
 import re
 
+from roverio.constants import DIRS_TO_IGNORE
+
 
 class SecretsCLI():
     def __init__(self):
@@ -47,15 +49,6 @@ class Secrets():
         """Search files for secrets such as passwords, API keys, etc
         """
         regex_pattern = re.compile(r'\b\w{' + str(length) + r',}\b')
-        dirs_to_ignore = [
-            'node_modules',
-            'vendor',
-            '.git',
-            '__pycache__',
-            'build',
-            'dist',
-            'htmlcov',
-        ]
         if os.path.exists(os.path.join(path, '.gitignore')):
             gitignore = open(os.path.join(path, '.gitignore'), 'r').read().splitlines()
         else:
@@ -64,7 +57,7 @@ class Secrets():
         # Run script iterating over each file and directory
         secrets_files = []
         for root, dirs, files in os.walk(path, topdown=True):
-            dirs[:] = [directory for directory in dirs if directory not in dirs_to_ignore]
+            dirs[:] = [directory for directory in dirs if directory not in DIRS_TO_IGNORE]
             for filename in files:
                 if gitignore and filename in gitignore:
                     continue

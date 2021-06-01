@@ -5,6 +5,8 @@ import re
 
 from pretty_tables import PrettyTables
 
+from roverio.constants import DIRS_TO_IGNORE
+
 README_STRING = os.getenv('README_STRING', 'readme.md')
 
 
@@ -136,22 +138,12 @@ class ReadmyReadmes():
         """Walks a folder structure looking for README files and
         returns a list of the paths of each README found.
         """
-        dirs_to_ignore = [
-            'node_modules',
-            'vendor',
-            '.git',
-            '__pycache__',
-            'build',
-            'dist',
-            '.pytest_cache',
-        ]
-
         readme_list = []
         for root, dirs, files in os.walk(path, topdown=True):
-            dirs[:] = [directory for directory in dirs if directory not in dirs_to_ignore]
-            for file in files:
-                if README_STRING.lower() in file.lower():
-                    readme_path = f'{root}/{file}'
+            dirs[:] = [directory for directory in dirs if directory not in DIRS_TO_IGNORE]
+            for filename in files:
+                if README_STRING.lower() in filename.lower():
+                    readme_path = f'{root}/{filename}'
                     readme_list.append(readme_path)
 
         if readme_list == []:

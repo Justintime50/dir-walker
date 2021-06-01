@@ -1,6 +1,8 @@
 import argparse
 import os
 
+from roverio.constants import DIRS_TO_IGNORE
+
 
 class FileExtensionCLI():
     def __init__(self):
@@ -41,20 +43,12 @@ class FileExtension():
     def search_file_extensions(path, extension):
         """Search for files with a specific extension in the specified directory
         """
-        dirs_to_ignore = [
-            'node_modules',
-            'vendor',
-            '.git',
-            '__pycache__',
-            'build',
-            'dist',
-        ]
         file_extension_files = []
         for root, dirs, files in os.walk(path, topdown=True):
-            dirs[:] = [directory for directory in dirs if directory not in dirs_to_ignore]
-            for file in files:
-                if file.endswith(extension):
-                    file_extension_file = os.path.join(root, file)
+            dirs[:] = [directory for directory in dirs if directory not in DIRS_TO_IGNORE]
+            for filename in files:
+                if filename.endswith(extension):
+                    file_extension_file = os.path.join(root, filename)
                     file_extension_files.append(file_extension_file)
         return file_extension_files
 
