@@ -14,6 +14,7 @@ def test_iterate_readmes(mock_path, mock_readmy_readme_rules):
     table = ReadmyReadmes.iterate_readmes(mock_path, mock_readmy_readme_rules)
     assert table == (
         '| README File | install | usage | todo | test |\n'
+        '| ----------- | ------- | ----- | ---- | ---- |\n'
         '| README.md   | True    | True  | True | True |'
     )
 
