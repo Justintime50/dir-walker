@@ -74,6 +74,7 @@ Options:
 
 ```
 | README File             | install | usage | test  | todo  |
+| ----------------------- | ------- | ----- | ----- | ----- |
 | adventofcode/README.md  | True    | True  | True  | False |
 | algorithms/README.md    | True    | True  | True  | False |
 | brew-backup/README.md   | True    | True  | False | False |
