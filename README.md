@@ -44,6 +44,21 @@ Options:
     -e EXTENSION, --extension EXTENSION     The file extension to search a path for.
 ```
 
+### Phone Email Searcher
+
+Phone Email Searcher searches for files that may contain phone numbers or email addresses.
+
+```
+Usage:
+    roverio-phone-email-searcher --path ~/code/my_project --phone --email
+
+Options:
+    -h, --help   show this help message and exit
+    --path PATH  Where Phone/Email Searcher will search.
+    -p, --phone  Search for phone numbers in the directory specified.
+    -e, --email  Search for emails in the directory specified.
+```
+
 ### Readmy Readmes
 
 Readmy Readmes is a fantastic tool to help find the holes in your project's documentation. Quickly iterate over every project README you have to search for key phrases you know should be there. 
