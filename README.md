@@ -9,7 +9,7 @@ Rover IO is a suite of tools that traverses your directories and performs IO fil
 [![PyPi](https://img.shields.io/pypi/v/roverio)](https://pypi.org/project/roverio/)
 [![Licence](https://img.shields.io/github/license/justintime50/roverio)](LICENSE)
 
-<img src="assets/showcase.png" alt="Showcase">
+<img src="https://raw.githubusercontent.com/justintime50/assets/main/src/roverio/showcase.png" alt="Showcase">
 
 </div>
 
@@ -171,7 +171,3 @@ make coverage
 # Run the scripts locally
 venv/bin/python roverio/secrets.py --help
 ```
-
-## Attribution
-
-* Icons made by <a href="https://www.freepik.com" title="Freepik">Freepik</a> from <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a>
