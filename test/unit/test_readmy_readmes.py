@@ -1,25 +1,28 @@
-import mock
+from unittest.mock import patch
+
 import pytest
 from roverio.readmy_readmes import ReadmyReadmes
 
 
-@mock.patch('roverio.readmy_readmes.ReadmyReadmes.iterate_readmes')
+@patch('roverio.readmy_readmes.ReadmyReadmes.iterate_readmes')
 def test_run_cli(mock_iterate_readmes, mock_path, mock_readmy_readme_rules):
     _ = ReadmyReadmes.run_cli(mock_path, mock_readmy_readme_rules)
     mock_iterate_readmes.assert_called_once_with(
-        mock_path, mock_readmy_readme_rules, False, 'readmy_readmes.csv', False)
+        mock_path, mock_readmy_readme_rules, False, 'readmy_readmes.csv', False
+    )
 
 
 def test_iterate_readmes(mock_path, mock_readmy_readme_rules):
     table = ReadmyReadmes.iterate_readmes(mock_path, mock_readmy_readme_rules)
-    assert table == (
-        '| README File | install | usage | todo | test |\n'
+    assert (
+        table
+        == '| README File | install | usage | todo | test |\n'
         '| ----------- | ------- | ----- | ---- | ---- |\n'
         '| README.md   | True    | True  | True | True |'
     )
 
 
-@mock.patch('roverio.readmy_readmes.ReadmyReadmes._create_csv')
+@patch('roverio.readmy_readmes.ReadmyReadmes._create_csv')
 def test_iterate_readmes_calls_create_csv(mock_csv, mock_path, mock_readmy_readme_rules):
     _ = ReadmyReadmes.iterate_readmes(mock_path, mock_readmy_readme_rules, True, 'readmy_readmes.csv', False)
     mock_csv.assert_called_once()
@@ -43,9 +46,10 @@ def test_check_rules_in_readme_not_lazy(mock_path, mock_readmy_readme_rules):
     assert result is True
 
 
-@pytest.mark.parametrize('lazy, rule, expected_value', [(True, 'development', True),
-                                                        (False, 'development', False),
-                                                        (True, 'bad-string', False)])
+@pytest.mark.parametrize(
+    'lazy, rule, expected_value',
+    [(True, 'development', True), (False, 'development', False), (True, 'bad-string', False)],
+)
 def test_check_rules_in_readme(lazy, rule, expected_value, mock_path, mock_readmy_readme_rules):
     """Tests that we properly can find rules by lazy searching
     (case insensitive) as well as explicitly matching (non-case-sensitive)
@@ -55,14 +59,14 @@ def test_check_rules_in_readme(lazy, rule, expected_value, mock_path, mock_readm
     assert result is expected_value
 
 
-@mock.patch('builtins.open')
-@mock.patch('csv.writer')
+@patch('builtins.open')
+@patch('csv.writer')
 def test_create_csv(mock_csv, mock_open, mock_headers, mock_data, mock_csv_path):
     ReadmyReadmes._create_csv(mock_headers, mock_data, mock_csv_path)
     mock_csv.assert_called_once()
 
 
-@mock.patch('csv.writer')
+@patch('csv.writer')
 def test_create_csv_exception(mock_csv, mock_headers, mock_data, mock_path):
     # We use "mock_path" here as it's a directory and not a file path
     with pytest.raises(Exception) as error:

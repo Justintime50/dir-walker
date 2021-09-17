@@ -10,14 +10,13 @@ REQUIREMENTS = [
 DEV_REQUIREMENTS = [
     'coveralls == 3.*',
     'flake8',
-    'mock == 4.*',
     'pytest == 6.*',
     'pytest-cov == 2.*',
 ]
 
 setuptools.setup(
     name='roverio',
-    version='2.2.0',
+    version='2.3.0',
     description='Rover IO is a suite of tools that traverses your directories and performs IO file operations.',  # noqa
     long_description=long_description,
     long_description_content_type="text/markdown",
@@ -32,7 +31,7 @@ setuptools.setup(
     ],
     install_requires=REQUIREMENTS,
     extras_require={
-        'dev': DEV_REQUIREMENTS
+        'dev': DEV_REQUIREMENTS,
     },
     entry_points={
         'console_scripts': [
@@ -44,5 +43,5 @@ setuptools.setup(
             'roverio-sequential-renamer = roverio.sequential_renamer:main',
         ]
     },
-    python_requires='>=3.6',
+    python_requires='>=3.7',
 )

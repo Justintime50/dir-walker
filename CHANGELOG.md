@@ -1,6 +1,12 @@
 # CHANGELOG
 
-# v2.2.0 (2021-05-31)
+## v2.3.0 (2021-09-17)
+
+* Removes support for Python 3.6
+* Removes `mock` library and replaces it with builtin `unittest.mock` library
+* Tweaks tests now that the assets directory has been removed
+
+## v2.2.0 (2021-05-31)
 
 * Added new phone/email searcher tool
 * Moved dirs/files to ignore lists to constants in a separate file which can be reused by all tools in this repo
